@@ -1,0 +1,61 @@
+.search {
+  padding: 5rem 0 0 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 90vh;
+  background-size: scale-down;
+}
+.search-img {
+  width: 35rem;
+  clip-path: ellipse(42% 50% at 50% 50%);
+}
+.search-form {
+  align-self: flex-start;
+}
+.search-form input {
+  border: 2px solid #331c57;
+  padding: 0.5rem 3rem;
+  font-size: 1.4rem;
+  border-radius: 3rem;
+  outline: none;
+}
+.searchedMeal-item__img {
+  width: 10rem;
+}
+.searchedMeal-results {
+  text-align: center;
+  width: 90%;
+  margin: 0 auto;
+  h3 {
+    font-weight: 500;
+    font-style: italic;
+  }
+}
+.searchedMeal-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+}
+.searchedMeal-item {
+  p {
+    font-size: 1rem;
+    color: #331c57;
+  }
+}
+@media screen and (max-width: 768px) {
+  .search {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    form {
+      padding: 1rem 1rem 13rem 1rem;
+      display: flex;
+      justify-content: center;
+    }
+  }
+  .search-form input {
+    padding: 0.5rem 2rem;
+    font-size: 1.2rem;
+  }
+}

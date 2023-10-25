@@ -1,0 +1,78 @@
+.banner {
+  height: 35vh;
+  width: 100%;
+  background: linear-gradient(90deg, #e4eefd -4%, #f1e7fd 100%);
+}
+.logo-container {
+  position: absolute;
+  top: 2%;
+  left: 1%;
+}
+.banner-container {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  height: 100%;
+  text-align: center;
+}
+.banner-img {
+  width: 10rem;
+  z-index: 3;
+}
+.glass {
+  align-self: flex-start;
+}
+.cup {
+  align-self: flex-end;
+}
+.bottle {
+  width: 12rem;
+  padding-top: 0.5rem;
+}
+.back-link {
+  display: flex;
+  align-items: center;
+  color: rgb(22, 22, 22);
+}
+.banner-title {
+  position: absolute;
+  text-transform: uppercase;
+  font-size: 10rem;
+  z-index: 1;
+  color: rgba(255, 255, 255, 0.7);
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 100%;
+}
+
+@media screen and (max-width: 992px) {
+  .banner-img {
+    width: 8rem;
+  }
+  .bottle {
+    align-self: flex-end;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .banner-container {
+    justify-content: center;
+    align-items: flex-end;
+  }
+  .bottle {
+    width: 10rem;
+  }
+  .glass {
+    display: none;
+  }
+  .cup {
+    display: none;
+  }
+  .banner-title {
+    font-size: 6rem;
+    top: 30%;
+  }
+}

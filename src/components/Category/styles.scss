@@ -1,0 +1,46 @@
+.category-section {
+  h2 {
+    padding: 5rem 0;
+  }
+}
+.categoryMeals-container {
+  width: 90%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  justify-items: center;
+  gap: 1.5rem;
+}
+.categoryMeals {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.categoryMeals__img {
+  width: 15rem;
+  height: 15rem;
+
+  padding-bottom: 1rem;
+  img {
+    border-radius: 3rem;
+  }
+}
+.categoryMeals__title {
+  font-size: 1.2rem;
+  width: 15rem;
+  color: #331c57;
+}
+@media screen and (max-width: 768px) {
+  .categoryMeals-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    align-items: center;
+  }
+
+  .categoryMeals__img {
+    width: 100%;
+  }
+}
