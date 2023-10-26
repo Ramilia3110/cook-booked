@@ -6,11 +6,12 @@ import Banner from "../../components/Banner/Banner";
 import { Link } from "react-router-dom";
 import { MdOutlineArrowBackIos } from "react-icons/md";
 import { motion } from "framer-motion";
+import { Meal } from "../../services/models/category.model";
 
 const Product = () => {
   const { id } = useParams();
   const { data, error, isLoading, isSuccess } = useMealRecipeQuery(id);
-  const [meal, setMeal] = useState([]);
+  const [meal, setMeal] = useState<Meal>([]);
 
   useEffect(() => {
     if (isSuccess) {
@@ -18,7 +19,7 @@ const Product = () => {
     }
   }, [isSuccess, data]);
 
-  const getYouTubeEmbedUrl = (youtubeUrl) => {
+  const getYouTubeEmbedUrl = (youtubeUrl: string) => {
     // Extract the video ID from the YouTube URL
     const videoId = youtubeUrl.split("v=")[1];
     if (videoId) {

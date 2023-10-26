@@ -1,12 +1,13 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useCategoriesQuery } from "../../services/mealsApi";
 import "./styles.scss";
 import Category from "../Category/Category";
 import { motion } from "framer-motion";
+import { CategoryM } from "../../services/models/category.model";
 
 const Categories = () => {
-  const { data, error, isLoading, isSuccess } = useCategoriesQuery();
-  const [categories, setCategories] = useState([]);
+  const queryResult = useCategoriesQuery();
+  const [categories, setCategories] = useState<CategoryM[]>([]);
   const [selectedCategory, setSelectedCategory] = useState("Breakfast");
 
   const fadeInAnimationVariants = {
@@ -20,9 +21,12 @@ const Categories = () => {
     },
   };
 
+  const { data, error, isLoading, isSuccess } = queryResult;
+
   useEffect(() => {
-    if (isSuccess) {
-      setCategories(data.categories.slice(0, 12));
+    if (isSuccess && data) {
+      setCategories(data?.categories?.slice(0, 12) || {});
+      console.log(data);
     }
   }, [isSuccess, data]);
 
@@ -31,17 +35,16 @@ const Categories = () => {
       <h2>Categories</h2>
       {isLoading && <h2>...Loading</h2>}
       {error && <h2>Something went wrong</h2>}
-      {isSuccess && (
+      {isSuccess && data && (
         <div className="categories-container">
           {categories.map((category, index) => {
-            // Add 'index' as an argument
             return (
               <motion.div
                 variants={fadeInAnimationVariants}
                 initial="initial"
                 whileInView="animate"
                 transition={{
-                  delay: 0.09 * index, // Stagger the animations with a delay based on index
+                  delay: 0.09 * index,
                 }}
                 className="category"
                 key={category.idCategory}
@@ -51,9 +54,6 @@ const Categories = () => {
                 <div className="category__img">
                   <img src={category.strCategoryThumb} alt="" />
                 </div>
-                <span className="category__desc">
-                  {category.strCategoryDescription}
-                </span>
               </motion.div>
             );
           })}

@@ -1,4 +1,3 @@
-import React from "react";
 import "./styles.scss";
 import glass from "../../assets/glass.png";
 import cup from "../../assets/cup.png";

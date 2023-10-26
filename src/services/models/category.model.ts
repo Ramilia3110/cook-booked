@@ -1,8 +1,11 @@
-export interface Category {
+export interface CategoryM {
   idCategory: string;
   strCategory: string;
   strCategoryThumb: string;
-  strCategoryDescription: string;
+}
+
+export interface CategoryO {
+  categories: CategoryM[];
 }
 
 export interface MealCategory {

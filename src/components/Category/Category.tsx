@@ -1,12 +1,13 @@
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { useCategoryQuery } from "../../services/mealsApi";
 import "./styles.scss";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { MealCategory } from "../../services/models/category.model";
 
-const Category = ({ categoryName }) => {
+const Category = ({ categoryName }: { categoryName: string }) => {
   const { data, error, isLoading, isSuccess } = useCategoryQuery(categoryName);
-  const [categoryMeals, setCategoryMeals] = useState([]);
+  const [categoryMeals, setCategoryMeals] = useState<MealCategory[]>([]);
 
   useEffect(() => {
     if (isSuccess) {

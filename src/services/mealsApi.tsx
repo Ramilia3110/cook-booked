@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { Category, MealCategory, Meal } from "./models/category.model";
+import { CategoryO, MealCategory, Meal } from "./models/category.model";
 
 export const mealsApi = createApi({
   reducerPath: "mealsApi",
@@ -7,7 +7,7 @@ export const mealsApi = createApi({
     baseUrl: "https://www.themealdb.com/api/json/v1/1/",
   }),
   endpoints: (builder) => ({
-    categories: builder.query<Category[], void>({
+    categories: builder.query<CategoryO[], void>({
       query: () => "categories.php",
     }),
     category: builder.query<MealCategory[], string>({
